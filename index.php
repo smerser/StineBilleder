@@ -1,7 +1,5 @@
 <?php
-include('login.php');   // Code
-$is_ok = checklogin();  // Call
-$display = 'none';
+    include('login.php');
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +50,8 @@ $display = 'none';
 
 <?php
 
-if($is_ok){
+$display = 'none';
+if(($is_ok = checklogin())){
     $display = 'display';
 
     class SortingIterator implements IteratorAggregate

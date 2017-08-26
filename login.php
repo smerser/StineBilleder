@@ -33,6 +33,7 @@ function  checklogin() {
     }
 
 print <<<EOF
+<br>
 <form method="post" name="login">
 <center><table>
 <tr><td><input type="password" id="pwd" name="password" placeholder="Skriv adgangskode" style="text-align:center;"></td></tr>
