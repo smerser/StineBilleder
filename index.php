@@ -10,7 +10,7 @@
         <meta name="copyright"  content="Copyright &copy; 2017 Soren Merser">
         <meta name="viewport"   content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <link rel="stylesheet" type="text/css" href="static/css/index.css">
 
         <script>
@@ -54,38 +54,31 @@ $display = 'none';
 if(($is_ok = checklogin())){
     $display = 'display';
 
-    class SortingIterator implements IteratorAggregate
-    {
+    class SortingIterator implements IteratorAggregate {
 
-            private $iterator = null;
+        private $iterator = null;
 
-            public function __construct(Traversable $iterator, $callback)
-            {
-                    if (!is_callable($callback)) {
-                            throw new InvalidArgumentException('Given callback is not callable!');
-                    }
-
-                    $array = iterator_to_array($iterator);
-                    usort($array, $callback);
-                    $this->iterator = new ArrayIterator($array);
+        public function __construct(Traversable $iterator, $callback) {
+            if (!is_callable($callback)) {
+                throw new InvalidArgumentException('Given callback is not callable!');
             }
+            $array = iterator_to_array($iterator);
+            usort($array, $callback);
+            $this->iterator = new ArrayIterator($array);
+        }
 
-            public function getIterator()
-            {
-                    return $this->iterator;
-            }
-    }
+        public function getIterator() {
+            return $this->iterator;
+        }
+    }   // END CLASS
 
-    function mysort($a, $b)
-    {
-            //return $a->getPathname() > $b->getPathname();
-            return filemtime($a) < filemtime($b);   // new first
+
+    function file_sort($a, $b) {
+        return filemtime($a) < filemtime($b);   // LATEST FIRST
     }
 
 
-    $it = new SortingIterator(new RecursiveIteratorIterator(new RecursiveDirectoryIterator('./Fotos/')), 'mysort');
-
-
+    $it = new SortingIterator(new RecursiveIteratorIterator(new RecursiveDirectoryIterator('./Fotos/')), 'file_sort');
     $i = 1;
     $source = array();
     foreach ($it as $file) {
@@ -142,10 +135,10 @@ if(($is_ok = checklogin())){
                 </thead>
                 <tbody class="hover">
                     <tr ng:repeat="row in data  | filter:search:strict | orderBy:sortBy:reverse as result" ng-click="goto(row.filename)">
-                        <td class="ref">  # {$ row.ref $}                               </td>
-                        <td>                {$ row.filename $}                          </td>
-                        <td>                {$ row.date $}                              </td>
-                        <td> <img src="{$ row.filename $}.gif" height="16" width="16"/> </td>
+                        <td class="ref">               # {$ row.ref $}                          </td>
+                        <td>                             {$ row.filename $}                     </td>
+                        <td>                             {$ row.date $}                         </td>
+                        <td> <img class="thumbnail" src="{$ 'Fotos/' + row.filename $}.gif" />  </td>
                     </tr>
                 </tbody>
             </table>
