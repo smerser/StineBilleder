@@ -1,8 +1,11 @@
 body {
     text-align: center;
+    background-color: green;
+/*
     background-image: url("../img/gflower.gif");
     background-position: 50% 50%;
     background-repeat: repeat;
+*/
 }
 table { margin: auto; border-collapse: collapse; }
 table.center tbody.hover tr:hover { background: #D6EAF8; }

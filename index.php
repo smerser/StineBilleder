@@ -37,15 +37,16 @@
 
         </script>
 
-        <title>Stines Billeder</title>
+        <title>Lotusregnbue</title>
     </head>
 
     <body>
         <div id="overlay"></div>
         <div id="overlayContent">
             <img id="imgBig" src="" alt="" width="800"></div>
-            <br/><img src="static/img/StineSjogrenMerser.gif" width="66%">
-            <h2> Lotus Regnbue Billeder </h2>
+            <br/>
+            <img data-scalestrategy="crop" width="300" height="88" src="//lotusregnbue.dk/____impro/1/onewebmedia/PPOnFly.png" style="display:block;">
+            <h1> Billedekatalog</h1>
 
 
 <?php
