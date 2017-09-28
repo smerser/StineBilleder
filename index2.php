@@ -158,7 +158,6 @@
                 <li ng-repeat="category in categories" ng-include="'categoryTree'"></li>
             </ul>
         </div>
-                </div>  <!-- End div.container -->
     </body>
 <html>
 
