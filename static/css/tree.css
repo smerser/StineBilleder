@@ -1,54 +1,33 @@
 body, html {
-	padding: 0px;
-	margin: 0px;
-}
-body {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
 	background: #EEE;
+	margin: auto;
 	padding: 15px;
 }
+
 
 h1 {
 	font-family: Georgia, serif;
 	font-size: 20px;
 	font-weight: normal;
+	color: red;
 }
 
-h2 {
-	font-family: Georgia, serif;
-	font-size: 16px;
-	font-weight: normal;
-	margin: 0px 0px 10px 0px;
-}
-
-.example {
-	display: inline-block
-}
-
-.demo {
-	width:  200px;
-	height: 400px;
-	border-top: solid 1px #BBB;
-	border-left: solid 1px #BBB;
-	border-bottom: solid 1px #FFF;
-	border-right: solid 1px #FFF;
-	background: #FFF;
-	overflow: scroll;
-	padding: 5px;
-}
 
 #wrapper {
-	float: right;
-	display: inline-block;
-	width:  80%;
-	height: 80%;
 	margin: auto;
+	object-fit: contain;
+	position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index:
 }
+
 
 #img {
 	max-width: 100%;
-	max-height:100%;
+	max-height: 100%;
+	height: auto;
+	width: auto;
+	image-orientation: from-image;
 }
 
-.file.ext_gif { display: none }
